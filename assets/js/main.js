@@ -101,3 +101,31 @@ function scaleCV() {
 function removeScale() {
   document.body.classList.remove("scale-cv");
 }
+/*==================== GENERATE PDF ====================*/
+let areaCv = document.getElementById("area-cv");
+
+let resumeButton = document.getElementById("resume-button");
+
+//html2pdf options
+let opt = {
+  margin: 0,
+  filename: "GuezguezKhalilResume.pdf",
+  image: { type: "jpeg", quality: 0.98 },
+  html2canvas: { scale: 4 },
+  jsPDF: { format: "A4", orientation: "portrait" },
+};
+
+//function to call areaCv and html2pdf options
+function generateResume() {
+  html2pdf(areaCv, opt);
+}
+
+//when button is clicked, it executes the three functions
+resumeButton.addEventListener("click", () => {
+  //the class .scale-cv is added to the body
+  scaleCV();
+  //the pdf is generated
+  generateResume();
+  //the .scale-cv class is removed from the body after 4 seconds to return to normal
+  setTimeout(removeScale, 3000);
+});
