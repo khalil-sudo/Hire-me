@@ -93,3 +93,11 @@ themeButton.addEventListener("click", () => {
   localStorage.setItem("selected-theme", getCurrentTheme());
   localStorage.setItem("selected-icon", getCurrentIcon());
 });
+/*==================== REDUCE THE SIZE AND PRINT ON A4 ====================*/
+function scaleCV() {
+  document.body.classList.add("scale-cv");
+}
+/*==================== REMOVE THE SIZE WHEN THE CV IS DOWNLOADED ====================*/
+function removeScale() {
+  document.body.classList.remove("scale-cv");
+}
